@@ -25,9 +25,9 @@ class RomanNumeralConverterTest extends TestCase
     /** @test */
     public function convert_1_to_I(): void
     {
-        $xxx = new RomanNumeralConverter();
+        $romanNumeralConverter = new RomanNumeralConverter();
 
-        $roman = $xxx->convertToRoman(1);
+        $roman = $romanNumeralConverter->convertToRoman(1);
 
         self::assertEquals("I", $roman);
     }
@@ -35,9 +35,9 @@ class RomanNumeralConverterTest extends TestCase
     /** @test */
     public function convert_2_to_II(): void
     {
-        $xxx = new RomanNumeralConverter();
+        $romanNumeralConverter = new RomanNumeralConverter();
 
-        $roman = $xxx->convertToRoman(2);
+        $roman = $romanNumeralConverter->convertToRoman(2);
 
         self::assertEquals("II", $roman);
     }
@@ -45,11 +45,21 @@ class RomanNumeralConverterTest extends TestCase
     /** @test */
     public function convert_3_to_III(): void
     {
-        $xxx = new RomanNumeralConverter();
+        $romanNumeralConverter = new RomanNumeralConverter();
 
-        $roman = $xxx->convertToRoman(3);
+        $roman = $romanNumeralConverter->convertToRoman(3);
 
         self::assertEquals("III", $roman);
+    }
+
+    /** @test */
+    public function convert_4_to_IV(): void
+    {
+        $romanNumeralConverter = new RomanNumeralConverter();
+
+        $roman = $romanNumeralConverter->convertToRoman(4);
+
+        self::assertEquals("IV", $roman);
     }
 
 }
