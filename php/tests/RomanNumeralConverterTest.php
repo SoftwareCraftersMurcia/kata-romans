@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace KataTests;
 
@@ -8,8 +10,7 @@ use PHPUnit\Framework\TestCase;
 class RomanNumeralConverterTest extends TestCase
 {
     /*+
-     = TRANSFORMATIONS:
-
+     = TRANSFORMATIONS =
      1  = I
      2  = II
      3  = III
@@ -22,123 +23,76 @@ class RomanNumeralConverterTest extends TestCase
      10 = X
      */
 
-    /** @test */
-    public function convert_1_to_I(): void
+    /**
+     * @dataProvider provider
+     * @test
+     */
+    public function convert(int $number, string $symbol): void
     {
         $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(1);
-
-        self::assertEquals("I", $roman);
+        self::assertEquals($symbol, $romanNumeralConverter->convertToRoman($number));
     }
 
-    /** @test */
-    public function convert_2_to_II(): void
+    public function provider(): \Generator
     {
-        $romanNumeralConverter = new RomanNumeralConverter();
+        yield 'convert_1_to_I' => [
+            $number = 1,
+            $symbol = 'I'
+        ];
 
-        $roman = $romanNumeralConverter->convertToRoman(2);
+        yield 'convert_2_to_II' => [
+            $number = 2,
+            $symbol = 'II'
+        ];
 
-        self::assertEquals("II", $roman);
-    }
+        yield 'convert_3_to_III' => [
+            $number = 3,
+            $symbol = 'III'
+        ];
 
-    /** @test */
-    public function convert_3_to_III(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
+        yield 'convert_4_to_IV' => [
+            $number = 4,
+            $symbol = 'IV'
+        ];
 
-        $roman = $romanNumeralConverter->convertToRoman(3);
+        yield 'convert_5_to_V' => [
+            $number = 5,
+            $symbol = 'V'
+        ];
 
-        self::assertEquals("III", $roman);
-    }
+        yield 'convert_6_to_VI' => [
+            $number = 6,
+            $symbol = 'VI'
+        ];
 
-    /** @test */
-    public function convert_4_to_IV(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
+        yield 'convert_7_to_VII' => [
+            $number = 7,
+            $symbol = 'VII'
+        ];
 
-        $roman = $romanNumeralConverter->convertToRoman(4);
+        yield 'convert_8_to_VIII' => [
+            $number = 8,
+            $symbol = 'VIII'
+        ];
 
-        self::assertEquals("IV", $roman);
-    }
+        yield 'convert_9_to_IX' => [
+            $number = 9,
+            $symbol = 'IX'
+        ];
 
-    /** @test */
-    public function convert_5_to_V(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
+        yield 'convert_10_to_X' => [
+            $number = 10,
+            $symbol = 'X'
+        ];
 
-        $roman = $romanNumeralConverter->convertToRoman(5);
+        yield 'convert_15_to_XV' => [
+            $number = 15,
+            $symbol = 'XV'
+        ];
 
-        self::assertEquals("V", $roman);
-    }
-
-    /** @test */
-    public function convert_6_to_VI(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(6);
-
-        self::assertEquals("VI", $roman);
-    }
-
-    /** @test */
-    public function convert_7_to_VII(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(7);
-
-        self::assertEquals("VII", $roman);
-    }
-
-    /** @test */
-    public function convert_8_to_VIII(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(8);
-
-        self::assertEquals("VIII", $roman);
-    }
-
-    /** @test */
-    public function convert_9_to_IX(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(9);
-
-        self::assertEquals("IX", $roman);
-    }
-
-    /** @test */
-    public function convert_10_to_X(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(10);
-
-        self::assertEquals("X", $roman);
-    }
-
-    /** @test */
-    public function convert_15_to_XV(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(15);
-
-        self::assertEquals("XV", $roman);
-    }
-
-    /** @test */
-    public function convert_20_to_XX(): void
-    {
-        $romanNumeralConverter = new RomanNumeralConverter();
-
-        $roman = $romanNumeralConverter->convertToRoman(20);
-
-        self::assertEquals("XX", $roman);
+        yield 'convert_20_to_XX' => [
+            $number = 20,
+            $symbol = 'XX'
+        ];
     }
 }
