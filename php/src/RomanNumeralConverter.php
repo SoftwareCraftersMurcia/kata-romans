@@ -9,7 +9,8 @@ class RomanNumeralConverter
     {
         $result = '';
         if ($arabicNumber === 9) {
-            return 'IX';
+            $arabicNumber -= 9;
+            $result .= 'IX';
         }
 
         if ($arabicNumber >= 5) {
@@ -18,12 +19,8 @@ class RomanNumeralConverter
         }
 
         if ($arabicNumber === 4) {
-            return 'IV';
-        }
-
-        if ($arabicNumber > 3) {
-            $arabicNumber -= 3;
-            $result .= 'V';
+            $arabicNumber -= 4;
+            $result .= 'IV';
         }
 
         for ($i = 0; $i < $arabicNumber; $i++) {
