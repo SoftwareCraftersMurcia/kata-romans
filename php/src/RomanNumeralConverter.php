@@ -8,6 +8,11 @@ class RomanNumeralConverter
     public function convertToRoman(int $arabicNumber): string
     {
         $result = '';
+        if ($arabicNumber === 10) {
+            $arabicNumber -= 10;
+            $result .= 'X';
+        }
+
         if ($arabicNumber === 9) {
             $arabicNumber -= 9;
             $result .= 'IX';
