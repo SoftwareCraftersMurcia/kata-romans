@@ -5,24 +5,26 @@ namespace Kata;
 
 class RomanNumeralConverter
 {
+    private int $arabicNumber;
+
     public function convertToRoman(int $arabicNumber): string
     {
+        $this->arabicNumber = $arabicNumber;
         $result = '';
-
-        $result .= $this->transform($arabicNumber, 10,'X');
-        $result .= $this->transform($arabicNumber, 9,'IX');
-        $result .= $this->transform($arabicNumber, 5,'V');
-        $result .= $this->transform($arabicNumber, 4,'IV');
-        $result .= $this->transform($arabicNumber, 1,'I');
+        $result .= $this->transform(10, 'X');
+        $result .= $this->transform(9, 'IX');
+        $result .= $this->transform(5, 'V');
+        $result .= $this->transform(4, 'IV');
+        $result .= $this->transform(1, 'I');
 
         return $result;
     }
 
-    private function transform(int &$arabicNumber, int $number, string $symbol): string
+    private function transform(int $number, string $symbol): string
     {
         $result = '';
-        while ($arabicNumber >= $number) {
-            $arabicNumber -= $number;
+        while ($this->arabicNumber >= $number) {
+            $this->arabicNumber -= $number;
             $result .= $symbol;
         }
 
