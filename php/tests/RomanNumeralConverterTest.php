@@ -7,6 +7,21 @@ use PHPUnit\Framework\TestCase;
 
 class RomanNumeralConverterTest extends TestCase
 {
+    /*+
+     = TRANSFORMATIONS:
+
+     1  = I
+     2  = II
+     3  = III
+     4  = IV
+     5  = V
+     6  = VI
+     7  = VII
+     8  = VIII
+     9  = IX
+     10 = X
+     */
+
     /** @test */
     public function convert_1_to_I(): void
     {
@@ -36,4 +51,5 @@ class RomanNumeralConverterTest extends TestCase
 
         self::assertEquals("III", $roman);
     }
+
 }
