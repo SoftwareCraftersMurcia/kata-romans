@@ -26,4 +26,14 @@ class RomanNumeralConverterTest extends TestCase
 
         self::assertEquals("II", $roman);
     }
+
+    /** @test */
+    public function convert_3_to_III(): void
+    {
+        $xxx = new RomanNumeralConverter();
+
+        $roman = $xxx->convertToRoman(3);
+
+        self::assertEquals("III", $roman);
+    }
 }

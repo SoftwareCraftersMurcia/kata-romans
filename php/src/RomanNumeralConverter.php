@@ -10,6 +10,14 @@ class RomanNumeralConverter
             return "I";
         }
 
-        return "II";
+        if (2 == $arabicNumber) {
+            return "II";
+        }
+
+        if (3 === $arabicNumber) {
+            return 'III';
+        }
+
+        return '';
     }
 }
