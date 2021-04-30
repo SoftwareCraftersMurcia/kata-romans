@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace Kata;
 
@@ -8,11 +9,12 @@ class RomanNumeralConverter
     {
         $result = '';
         if ($arabicNumber > 3) {
-            return 'IV';
+            $arabicNumber -= 3;
+            $result .= 'V';
         }
 
         for ($i = 0; $i < $arabicNumber; $i++) {
-            $result .= 'I';
+            $result = 'I' . $result;
         }
 
         return $result;
