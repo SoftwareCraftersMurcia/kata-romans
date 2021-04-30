@@ -1,21 +1,26 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Kata;
 
 class RomanNumeralConverter
 {
     private int $arabicNumber;
+    private array $letters = [
+        10 => 'X',
+        9 => 'IX',
+        5 => 'V',
+        4 => 'IV',
+        1 => 'I',
+    ];
 
     public function convertToRoman(int $arabicNumber): string
     {
         $this->arabicNumber = $arabicNumber;
         $result = '';
-        $result .= $this->transform(10, 'X');
-        $result .= $this->transform(9, 'IX');
-        $result .= $this->transform(5, 'V');
-        $result .= $this->transform(4, 'IV');
-        $result .= $this->transform(1, 'I');
+        foreach ($this->letters as $number => $symbol) {
+            $result .= $this->transform($number, $symbol);
+        }
 
         return $result;
     }
