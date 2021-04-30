@@ -131,4 +131,14 @@ class RomanNumeralConverterTest extends TestCase
 
         self::assertEquals("XV", $roman);
     }
+
+    /** @test */
+    public function convert_20_to_XX(): void
+    {
+        $romanNumeralConverter = new RomanNumeralConverter();
+
+        $roman = $romanNumeralConverter->convertToRoman(20);
+
+        self::assertEquals("XX", $roman);
+    }
 }

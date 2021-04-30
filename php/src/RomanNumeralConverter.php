@@ -8,7 +8,7 @@ class RomanNumeralConverter
     public function convertToRoman(int $arabicNumber): string
     {
         $result = '';
-        if ($arabicNumber >= 10) {
+        while ($arabicNumber >= 10) {
             $arabicNumber -= 10;
             $result .= 'X';
         }
