@@ -6,6 +6,10 @@ class RomanNumeralConverter
 {
     public function convertToRoman(int $arabicNumber): string
     {
-        return "I";
+        if (1 === $arabicNumber) {
+            return "I";
+        }
+
+        return "II";
     }
 }
