@@ -72,4 +72,14 @@ class RomanNumeralConverterTest extends TestCase
         self::assertEquals("V", $roman);
     }
 
+    /** @test */
+    public function convert_6_to_VI(): void
+    {
+        $romanNumeralConverter = new RomanNumeralConverter();
+
+        $roman = $romanNumeralConverter->convertToRoman(6);
+
+        self::assertEquals("VI", $roman);
+    }
+
 }
