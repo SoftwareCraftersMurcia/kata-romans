@@ -82,4 +82,34 @@ class RomanNumeralConverterTest extends TestCase
         self::assertEquals("VI", $roman);
     }
 
+    /** @test */
+    public function convert_7_to_VII(): void
+    {
+        $romanNumeralConverter = new RomanNumeralConverter();
+
+        $roman = $romanNumeralConverter->convertToRoman(7);
+
+        self::assertEquals("VII", $roman);
+    }
+
+    /** @test */
+    public function convert_8_to_VIII(): void
+    {
+        $romanNumeralConverter = new RomanNumeralConverter();
+
+        $roman = $romanNumeralConverter->convertToRoman(8);
+
+        self::assertEquals("VIII", $roman);
+    }
+
+    /** @test */
+    public function convert_9_to_IX(): void
+    {
+        $romanNumeralConverter = new RomanNumeralConverter();
+
+        $roman = $romanNumeralConverter->convertToRoman(9);
+
+        self::assertEquals("IX", $roman);
+    }
+
 }
